@@ -2,15 +2,11 @@ class Address < ApplicationRecord
   include Fae::BaseModelConcern
 
   def fae_display_field
-    
+    id
   end
 
   def  self.for_fae_index 
-    order (:state)
-  end
-
-  def fae_nested_parent
-    :client
+    order (:id)
   end
 
   validates :street, presence: true
