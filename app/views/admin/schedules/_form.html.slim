@@ -5,7 +5,7 @@
 
   main.content
     = fae_datepicker f, :date
-    = fae_input f, :hour, input_html: { style: 'width: 47%', placeholder: "HH:MM" }
+    = fae_input f, :hour, input_html: { style: 'width: 10%'}
     = fae_association f, :client
     = fae_association f, :services
     = fae_pulldown f, :status, size: 'long', collection: Schedule.statuses.to_a, selected: Schedule.statuses[@item.status]
