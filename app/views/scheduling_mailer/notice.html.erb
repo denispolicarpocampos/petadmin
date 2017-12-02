@@ -1,0 +1,10 @@
+<h1>Service Scheduled</h1>
+
+<p>
+  Hi <%= @schedule.client.name %>,</br>
+  you has a service scheduled to <%= @schedule.date.strftime("%b/%d,/%Y") %> at <%= @schedule.hour %>
+</p>
+
+<p><strong>The services are: <%= @schedule.services.pluck(:title).join(",") %></strong></p>
+
+<p><strong>The total price is: <%= @schedule.services.sum(:price)%></strong></p>

@@ -3,7 +3,6 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
 
   namespace :admin do
-    resources :service_schedules
     resources :schedules
     resources :addresses
     resources :sells

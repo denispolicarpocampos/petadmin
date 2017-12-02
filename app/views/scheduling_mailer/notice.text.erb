@@ -1,0 +1,6 @@
+Service Scheduled
+
+Hi you has a service scheduled to <%= @schedule.date.strftime("%b/%d,/%Y") %> at <%= @schedule.hour %>
+
+The services are: <%= @schedule.services.pluck(:title).join(",") %>
+

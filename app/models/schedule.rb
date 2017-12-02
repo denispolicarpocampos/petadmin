@@ -1,7 +1,7 @@
 class Schedule < ApplicationRecord
   include Fae::BaseModelConcern
 
-  enum status: { finalized: 0, canceled: 1 }
+  enum status: { scheduled: 0, finalized: 1, canceled: 2 }
 
   validates :date, presence: true
   validates :hour, presence: true
@@ -17,8 +17,15 @@ class Schedule < ApplicationRecord
     order(:date)
   end
 
+  after_save :schedule
+
 
   belongs_to :client
   has_many :service_schedules, dependent: :destroy
   has_many :services, through: :service_schedules
+
+  private
+    def schedule
+      ScheduleJob.perform_later self if self.scheduled?
+    end
 end
