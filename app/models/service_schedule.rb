@@ -5,7 +5,6 @@ class ServiceSchedule < ApplicationRecord
     
   end
 
-
   belongs_to :service
   belongs_to :schedule
 end
